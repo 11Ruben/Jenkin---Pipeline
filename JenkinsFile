@@ -67,5 +67,6 @@ pipeline{
 					to: "ooiruben11@gmail.com",
 					attachLog: true
 				}
+			}
 	}
 }
