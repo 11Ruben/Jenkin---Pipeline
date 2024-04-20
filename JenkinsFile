@@ -16,8 +16,16 @@ pipeline{
 			post{
 				success{
 					emailext subject: "Unit Test Status Email",
-                        		body: "Unit test has been run by using test automation tool - Katalon",
-					to: "ooiruben11@gmail.com"
+									body: "Unit test has been run by using test automation tool - Katalon",
+									to: "ooiruben11@gmail.com",
+									attachLog: true
+				}
+				
+				failure{
+					emailext subject: "Unit Test Status Email Failed",
+								body: "Unit test has been run by using test automation tool - Katalon",
+								to: "ooiruben11@gmail.com",
+								attachLog: true
 				}
 			}
 		}
@@ -33,8 +41,16 @@ pipeline{
 			post{
 				success{
 					emailext subject: "Security Scan Status Email",
-						body: "A security scan on the code has been scanned by OWASP ZAP",
-						to: "ooiruben11@gmail.com"
+								body: "A security scan on the code has been scanned by OWASP ZAP",
+								to: "ooiruben11@gmail.com",
+								attachLog: true
+				}
+				
+				failure{
+					emailext subject: "Security Scan Status Email Failed",
+								body: "A security scan on the code has been scanned by OWASP ZAP",
+								to: "ooiruben11@gmail.com",
+								attachLog: true
 				}
 			}	
 		}
