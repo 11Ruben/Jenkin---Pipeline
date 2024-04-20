@@ -28,7 +28,7 @@ pipeline{
 					emailext to: "ooiruben11@gmail.com",
                       				subject: "Unit Test Status Email",
                      				body: "Unit test has been run by using test automation tool - Katalon",
-                      				attachments: [currentBuild.rawBuild.getLogFile()]
+                      				attachLog: [currentBuild.rawBuild.getLogFile()]
 				}
 			}	
 		}
