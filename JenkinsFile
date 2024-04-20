@@ -1,0 +1,42 @@
+pipeline{
+	agent any
+	environment{
+		DIRECTORY_PATH= "/User/Ruben/SIT_223/Task 5.1P - Code"
+		TESTING_ENVIRONMENT= "Jenkins"
+		PRODUCTION_ENVIRONMENT= "Ooi Ruben"
+	}
+	stages{
+		stage('Build'){
+			steps{
+				echo "fetch the source code from $DIRECTORY_PATH"
+				echo "compile the code and generate any necessary artifacts"
+			}
+		}
+		stage('Test'){
+			steps{
+				echo "unit tests"
+				echo "integration tests"
+			}
+		}
+		stage('Code Quality Check'){
+			steps{
+				echo "check the quality of the code"
+			}
+		}
+		stage('Deploy'){
+			steps{
+				echo "deploy the application to $TESTING_ENVIRONMENT"
+			}
+		}
+		stage('Approval'){
+			steps{
+				sleep 10
+			}
+		}
+		stage('Deploy to Production'){
+			steps{
+				echo "This deployment was completed by $PRODUCTION_ENVIRONMENT in $TESTING_ENVIRONMENT"
+			}
+		}
+	}
+}
