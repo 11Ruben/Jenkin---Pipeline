@@ -13,13 +13,6 @@ pipeline{
 			steps{
 				echo "Unit test running ..."
 			}
-			post{
-				success{
-					mail to: "ooiruben11@gmail.com",
-					subject: "Unit Test Status Email",
-					body: "Unit test has been run by using test automation tool - Katalon"
-				}
-			}
 		}
 		stage('Code Analysis'){
 			steps{
@@ -32,9 +25,10 @@ pipeline{
 			}
 			post{
 				success{
-					mail to: "ooiruben11@gmail.com",
-					subject: "Security Scan Status Email",
-					body: "A security scan on the code has been scanned by OWASP ZAP"
+					emailext to: "ooiruben11@gmail.com",
+                      				subject: "Unit Test Status Email",
+                     				body: "Unit test has been run by using test automation tool - Katalon",
+                      				attachments: [currentBuild.rawBuild.getLogFile()]
 				}
 			}	
 		}
@@ -52,21 +46,6 @@ pipeline{
 			steps{
 				echo "The application has been deployed to a production server - AWS EC2 instance"
 			}
-		}
-	}
-	post{
-		success{
-			emailext subject: "Security Scan Status Email",
-				body: "A security scan on the code has been scanned by OWASP ZAP",
-				to: "ooiruben11@gmail.com",
-				attachLog: true
-		}
-				
-		failure{
-			emailext subject: "Security Scan Status Email Failed",
-			body: "A security scan on the code has been scanned by OWASP ZAP",
-			to: "ooiruben11@gmail.com",
-			attachLog: true
 		}
 	}
 }
