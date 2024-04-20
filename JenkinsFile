@@ -15,17 +15,9 @@ pipeline{
 			}
 			post{
 				success{
-					emailext subject: "Unit Test Status Email",
-									body: "Unit test has been run by using test automation tool - Katalon",
-									to: "ooiruben11@gmail.com",
-									attachLog: true
-				}
-				
-				failure{
-					emailext subject: "Unit Test Status Email Failed",
-								body: "Unit test has been run by using test automation tool - Katalon",
-								to: "ooiruben11@gmail.com",
-								attachLog: true
+					mail to: "ooiruben11@gmail.com",
+					subject: "Unit Test Status Email",
+					body: "Unit test has been run by using test automation tool - Katalon",
 				}
 			}
 		}
@@ -40,17 +32,9 @@ pipeline{
 			}
 			post{
 				success{
-					emailext subject: "Security Scan Status Email",
-								body: "A security scan on the code has been scanned by OWASP ZAP",
-								to: "ooiruben11@gmail.com",
-								attachLog: true
-				}
-				
-				failure{
-					emailext subject: "Security Scan Status Email Failed",
-								body: "A security scan on the code has been scanned by OWASP ZAP",
-								to: "ooiruben11@gmail.com",
-								attachLog: true
+					mail to: "ooiruben11@gmail.com",
+					subject: "Security Scan Status Email",
+					body: "A security scan on the code has been scanned by OWASP ZAP",
 				}
 			}	
 		}
@@ -69,5 +53,19 @@ pipeline{
 				echo "The application has been deployed to a production server - AWS EC2 instance"
 			}
 		}
+		post{
+				success{
+					emailext subject: "Security Scan Status Email",
+					body: "A security scan on the code has been scanned by OWASP ZAP",
+					to: "ooiruben11@gmail.com",
+					attachLog: true
+				}
+				
+				failure{
+					emailext subject: "Security Scan Status Email Failed",
+					body: "A security scan on the code has been scanned by OWASP ZAP",
+					to: "ooiruben11@gmail.com",
+					attachLog: true
+				}
 	}
 }
