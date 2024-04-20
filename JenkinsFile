@@ -18,7 +18,7 @@ pipeline{
 					mail to: "ooiruben11@gmail.com",
 					subject: "Unit Test Status Email",
 					body: "Unit test has been run by using test automation tool - Katalon",
-					attachLog: true
+					emailext attachLog: true, attachmentsPattern: 'generatedFile.txt'
 				}
 			}
 		}
