@@ -18,7 +18,6 @@ pipeline{
 					mail to: "ooiruben11@gmail.com",
 					subject: "Unit Test Status Email",
 					body: "Unit test has been run by using test automation tool - Katalon",
-					emailext attachLog
 				}
 			}
 		}
@@ -36,7 +35,6 @@ pipeline{
 					mail to: "ooiruben11@gmail.com",
 					subject: "Security Scan Status Email",
 					body: "A security scan on the code has been scanned by OWASP ZAP",
-					emailext attachLog
 				}
 			}	
 		}
