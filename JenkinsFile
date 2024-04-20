@@ -1,41 +1,49 @@
 pipeline{
 	agent any
 	environment{
-		DIRECTORY_PATH= "/User/Ruben/SIT_223/Task 5.1P - Code"
-		TESTING_ENVIRONMENT= "Jenkins"
-		PRODUCTION_ENVIRONMENT= "Ooi Ruben"
+		STAGING_ENVIRONMENT= "AWS EC2 instance"
 	}
 	stages{
 		stage('Build'){
 			steps{
-				echo "fetch the source code from $DIRECTORY_PATH"
-				echo "compile the code and generate any necessary artifacts"
+				echo "This code is built by an automation tool - "Maven""
 			}
 		}
-		stage('Test'){
+		stage('Unit Test'){
 			steps{
-				echo "unit tests"
-				echo "integration tests"
+				echo "Unit test has been run by using test automation tool - "Katalon""
 			}
 		}
-		stage('Code Quality Check'){
+		stage('Code Analysis'){
 			steps{
-				echo "check the quality of the code"
+				echo "Quality of the code has been checked by code analysis tool - "PMD""
 			}
 		}
-		stage('Deploy'){
+		stage('Security Scan'){
 			steps{
-				echo "deploy the application to $TESTING_ENVIRONMENT"
+				echo "Scanning ..."
+			}
+			post{
+				success{
+					mail to: "ooiruben11@gmail.com",
+					subject: "Security Scan Status Email"
+					body: "A security scan on the code has been scanned by "OWASP ZAP""
+				}
+			}	
+		}
+		stage('Deploy to Staging'){
+			steps{
+				echo "The application has been deployed to a staging server - "AWS EC2 instance""
 			}
 		}
-		stage('Approval'){
+		stage('Integration Test'){
 			steps{
-				sleep 10
+				echo "Integration test on the $STAGING_ENVIRONMENT has been run by using test automation tool - "Katalon""
 			}
 		}
 		stage('Deploy to Production'){
 			steps{
-				echo "This deployment was completed by $PRODUCTION_ENVIRONMENT in $TESTING_ENVIRONMENT"
+				echo "The application has been deployed to a production server - "AWS EC2 instance""
 			}
 		}
 	}
