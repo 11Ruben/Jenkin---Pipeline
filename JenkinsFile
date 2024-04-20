@@ -25,11 +25,12 @@ pipeline{
 			}
 			post{
 				success{
-					emailext to: "ooiruben11@gmail.com",
-                      				subject: "Unit Test Status Email",
-                     				body: "Unit test has been run by using test automation tool - Katalon",
-                      				attachLog: true
+					mail to: "ooiruben11@gmail.com",
+					subject: "Unit Test Status Email",
+					body: "Unit test has been run by using test automation tool - Katalon",
+					attachments: [currentBuild.rawBuild.getLogFile()]
 				}
+                      
 			}	
 		}
 		stage('Deploy to Staging'){
