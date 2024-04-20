@@ -15,12 +15,12 @@ pipeline{
 			}
 			post{
 				success{
-					emailext{
-					mail to: "ooiruben11@gmail.com",
-					subject: "Unit Test Status Email",
-					body: "Unit test has been run by using test automation tool - Katalon",
-					attachLog: true
-					}
+					emailext(
+                        to: "ooiruben11@gmail.com",
+                        subject: "Unit Test Status Email",
+                        body: "Unit test has been run by using test automation tool - Katalon",
+                        attachLog: true
+                    )
 				}
 			}
 		}
@@ -35,12 +35,12 @@ pipeline{
 			}
 			post{
 				success{
-					emailext{
+					emailext(
 					mail to: "ooiruben11@gmail.com",
 					subject: "Security Scan Status Email",
 					body: "A security scan on the code has been scanned by OWASP ZAP",
 					attachLog: true
-					}
+					)
 				}
 			}	
 		}
