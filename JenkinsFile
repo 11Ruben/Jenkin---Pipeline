@@ -45,16 +45,19 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            mail to: 'ooiruben11@gmail.com',
-            subject: "Pipeline '${currentBuild.fullDisplayName}' Successful",
-            body: 'The build was successful. Congratulations!'
-        }
-        failure {
-            mail to: 'ooiruben11@gmail.com',
-            subject: "Pipeline '${currentBuild.fullDisplayName}' Failed",
-            body: 'The build has failed. Please investigate.'
-        }
-    }
+	post{
+		success{
+			emailext subject: "Security Scan Status Email",
+				body: "A security scan on the code has been scanned by OWASP ZAP",
+				to: "ooiruben11@gmail.com",
+				attachLog: true
+		}
+				
+		failure{
+			emailext subject: "Security Scan Status Email Failed",
+			body: "A security scan on the code has been scanned by OWASP ZAP",
+			to: "ooiruben11@gmail.com",
+			attachLog: true
+		}
+	}
 }
