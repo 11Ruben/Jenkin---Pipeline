@@ -47,14 +47,14 @@ pipeline {
     }
     post {
         success {
-            emailext subject: "Pipeline '${currentBuild.fullDisplayName}' Successful",
-                      body: 'The build was successful. Congratulations!',
-                      to: 'ooiruben11@gmail.com'
+            subject: "Pipeline '${currentBuild.fullDisplayName}' Successful",
+            body: 'The build was successful. Congratulations!',
+            mail to: 'ooiruben11@gmail.com'
         }
         failure {
-            emailext subject: "Pipeline '${currentBuild.fullDisplayName}' Failed",
-                      body: 'The build has failed. Please investigate.',
-                      to: 'ooiruben11@gmail.com'
+            subject: "Pipeline '${currentBuild.fullDisplayName}' Failed",
+            body: 'The build has failed. Please investigate.',
+            mail to: 'ooiruben11@gmail.com'
         }
     }
 }
