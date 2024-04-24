@@ -34,8 +34,7 @@ pipeline{
 				success{
 					mail to: "ooiruben11@gmail.com",
 					subject: "Security Scan Status Email",
-					body: "A security scan on the code has been scanned by OWASP ZAP",
-					attachLog: true
+					body: "A security scan on the code has been scanned by OWASP ZAP"
 				}
 			}	
 		}
