@@ -16,8 +16,8 @@ pipeline{
 			post{
 				success{
 					emailext body: 'Test Message',
-    					subject: 'Test Subject',
-   				 	to: 'ooiruben11@gmail.com.com'
+    						subject: 'Test Subject',
+   				 		to: 'ooiruben11@gmail.com'
 				}
 			}
 		}
