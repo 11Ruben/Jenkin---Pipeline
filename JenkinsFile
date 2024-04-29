@@ -33,9 +33,10 @@ pipeline{
 			}
 			post{
 				success{
-					mail to: "ooiruben11@gmail.com",
-					subject: "Security Scan Status Email",
-					body: "A security scan on the code has been scanned by OWASP ZAP"
+					emailext subject: "Security Scan Status Email",
+						body: "A security scan on the code has been scanned by OWASP ZAP",
+						to: "ooiruben11@gmail.com",
+						attachLog: true
 				}
 			}	
 		}
@@ -58,16 +59,16 @@ pipeline{
 	post{
 		success{
 			emailext subject: "Build Successfully",
-				body: "A security scan on the code has been scanned by OWASP ZAP",
+				body: "The Build has been builded successfully",
 				to: "ooiruben11@gmail.com",
 				attachLog: true
 		}
 				
 		failure{
-			emailext subject: "Security Scan Status Email Failed",
-			body: "A security scan on the code has been scanned by OWASP ZAP",
-			to: "ooiruben11@gmail.com",
-			attachLog: true
+			emailext subject: "Build Unsuccessfully",
+				body: "The Build has been builded unsuccessfully. Please check on what went wrong.",
+				to: "ooiruben11@gmail.com",
+				attachLog: true
 		}
 	}
 }
