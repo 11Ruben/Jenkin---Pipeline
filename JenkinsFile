@@ -15,7 +15,7 @@ pipeline{
 			}
 			post{
 				success{
-					emailext subject: "Unit Test Status Email",
+					emailext subject: "Unit Test Status: Success",
 						body: "Unit test has been run by using test automation tool - Katalon",
 						to: "ooiruben11@gmail.com",
 						attachLog: true
@@ -33,7 +33,7 @@ pipeline{
 			}
 			post{
 				success{
-					emailext subject: "Security Scan Status Email",
+					emailext subject: "Security Scan Status: Success",
 						body: "A security scan on the code has been scanned by OWASP ZAP",
 						to: "ooiruben11@gmail.com",
 						attachLog: true
