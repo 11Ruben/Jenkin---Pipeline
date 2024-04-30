@@ -1,5 +1,3 @@
-// Completed By Ooi Ruben (s223560951)
-
 pipeline{
 	agent any
 	environment{
