@@ -19,7 +19,7 @@ pipeline{
 				success{
 					emailext subject: "Unit Test Status: Success",
 						body: "Unit test has been run by using test automation tool - Katalon",
-						to: "ooiruben11@gmail.com",
+						to: ".com",
 						attachLog: true
 				}
 			}
@@ -37,7 +37,7 @@ pipeline{
 				success{
 					emailext subject: "Security Scan Status: Success",
 						body: "A security scan on the code has been scanned by OWASP ZAP",
-						to: "ooiruben11@gmail.com",
+						to: ".com",
 						attachLog: true
 				}
 			}	
@@ -62,14 +62,14 @@ pipeline{
 		success{
 			emailext subject: "Build Successfully",
 				body: "The Build has been built successfully",
-				to: "ooiruben11@gmail.com",
+				to: ".com",
 				attachLog: true
 		}
 				
 		failure{
 			emailext subject: "Build Unsuccessfully",
 				body: "The Build has been built unsuccessfully. Please check on what went wrong.",
-				to: "ooiruben11@gmail.com",
+				to: ".com",
 				attachLog: true
 		}
 	}
